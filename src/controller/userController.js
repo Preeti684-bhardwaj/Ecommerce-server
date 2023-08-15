@@ -1,19 +1,15 @@
 const userModel = require("../model/userModel");
 const bcrypt = require("bcrypt");
-const { uploadFile } = require("../aws/awsConfig");
 const jwt = require("jsonwebtoken");
 const dotenv = require('dotenv').config()
 const { SECRET_KEY } = process.env;
 
 const {
-  isValidBody,
   isValidName,
   isValidEmail,
   isValidNumber,
   isValid,
   isValidPassword,
-  isValidPincode,
-  isValidId,
 } = require("../utils/validator");
 
 // ===================Register====================================================================
@@ -23,13 +19,6 @@ const createUser = async function (req, res) {
     const data = req.body;
     const { fname, email, mobile, password, cpassword } = data
 
-
-    // if (!isValidBody(data)) {
-    //   return res.status(400).send({
-    //     status: false,
-    //     message: "Please provide data in the request body!",
-    //   });
-    // }
 
     if (!fname)
       return res
