@@ -5,7 +5,6 @@ const cookieParser = require("cookie-parser");
 const dotenv =require('dotenv').config()
 const {PORT,MONGOOSE_STRING}=process.env;
 const app=express()
-const Products=require('./model/productModel')
 const cors=require('cors');
 
 
@@ -22,4 +21,5 @@ app.use('/',route);
 app.listen(PORT, ()=>{
     console.log('express running on port',PORT)
 })
+
 
